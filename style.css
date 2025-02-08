@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffffff, #6389d1);
+    overflow: hidden;
+}
+
+.logo {
+    display: block;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-8px);
+    }
+}
+
+h1 {
+    font-size: 27px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #170f64;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.container {
+    width: 95%;
+    max-width: 955px;
+    border: 2px solid #2a1b90;
+    border-radius: 13px;
+    margin: auto;
+    height: 60vh;
+    padding: 3px;
+    overflow-y: auto; /* Scroll only for messages */
+    margin-bottom: 1px;
+    background-image: url("background.jpg"); /* Replace with your image URL */
+    background-size: cover; /* Adjust the image to cover the entire container */
+    background-position: center; /* Center the image */
+    position: relative; /* For proper layering */
+}
+
+.message-container {
+    height: 100%; /* Allow messages to take full height */
+    overflow-y: auto; /* Enable scrolling for messages */
+}
+
+.message {
+    background-color: #ffffff;
+    width: auto;
+    max-width: 60%;
+    padding: 6px;
+    margin: 2px 10px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.left {
+    float: left;
+    clear: both;
+    margin-bottom: 2px;
+    background-color: #e0e7ef;
+    color: black;
+}
+
+.left + .right,
+.right + .left {
+    margin-top: 15px; /* Larger space when switching between left and right messages */
+}
+
+.right {
+    float: right;
+    clear: both;
+    margin-bottom: 2px;
+    background-color: #8eb4e6;
+    color: black;
+}
+
+.center {
+    float: center;
+    clear: both;
+}
+
+/* Custom styles for event messages (like join/left) */
+.event-message {
+    background-color: #f0f4c3; /* Light yellow background for event messages */
+    color: #5d4037; /* Brown text for better visibility */
+    font-weight: bold; /* Make it stand out */
+    width: fit-content;
+    max-width: 60%;
+    padding: 3px;
+    margin: 15px auto;
+    border: 2px solid #c0ca33;
+    text-align: center;
+    font-family: serif;
+    font-size: 10px;
+    border-radius: 10px;
+}
+
+.timestamp {
+    font-size: 0.8em; /* Smaller font size for the timestamp */
+    color: #8d8d8d;
+    margin-left: 5px; /* Space between message and timestamp */
+}
+
+.typing-indicator {
+    color: #ceda21; /* Change to your desired color */
+    font-style: italic;
+    background-color: transparent;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#send-container {
+    display: flex;
+    margin: auto;
+    text-align: center;
+    max-width: 955px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#messageInp {
+    min-width: 60%;
+    height: 34px;
+    flex: 1;
+    border: 2px solid #2a1b90;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #f9f9f9;
+    color: #36005d;
+    padding: 10px;
+    transition: border-color 0.3s;
+}
+
+#messageInp:focus {
+    outline: none;
+    border-color: #7b68ee;
+    box-shadow: 0 0 5px rgba(123, 104, 238, 0.5);
+}
+
+.btn {
+    width: auto;
+    background: #6a5acd;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin: 3px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    height: 34px;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background: #5a4eae;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+    .message {
+        max-width: 80%; /* Reduce max width on smaller screens */
+    }
+}
+
+.online-users-label {
+    font-size: 16px; /* Adjust size as needed */
+    color: #4b0082; /* Color of the label */
+    margin: 10px auto; /* Center and space it nicely */
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center; /* Center the text */
+    font-weight: bold;
+}
+
+.user-list-container {
+    text-align: center; /* Center the container */
+}
+
+.user-list {
+    width: 95%;
+    max-width: 955px;
+    border: 2px solid #2a1b90;
+    border-radius: 15px;
+    margin: 2px auto;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.9);
+    height: auto; /* Auto height to accommodate blocks */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    overflow-y: hidden;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user {
+    display: inline-block; /* Allow users to appear in a block format */
+    padding: 5px 10px;
+    border-radius: 12px;
+    margin-right: 6px; /* Space between user blocks */
+    background: #e3f2fd; /* Light background for user blocks */
+    color: #4b0082; /* User name color */
+    transition: background 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.user:hover {
+    background: #bbdefb; /* Change background on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.user:active {
+    transform: translateY(0); /* Reset on click */
+}

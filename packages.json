@@ -1,0 +1,13 @@
+{
+  "name": "AR-chat-copy",
+  "version": "1.0.0",
+  "description": "blah",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
